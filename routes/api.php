@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\V1\PostController as PostV1;
 use App\Http\Controllers\Api\V2\PostController as PostV2;
 use Illuminate\Http\Request;
@@ -24,3 +25,6 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::apiResource('v1/post', PostV1::class)->only(['index', 'show', 'destroy']);
     Route::apiResource('v2/post', PostV2::class)->only(['index', 'show', 'destroy']);
 });
+
+
+Route::post('login', [LoginController::class, 'login']);
